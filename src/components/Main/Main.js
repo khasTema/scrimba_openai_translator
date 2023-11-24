@@ -6,6 +6,7 @@ import { TextArea } from '../TextArea/TextArea';
 import { Selector } from '../Selector/Selector';
 import { Button } from '../Button/Button';
 import OpenAI from 'openai';
+import { usePrompt } from '../../hooks/usePrompt';
 
 export const Main = () => {
 
@@ -22,6 +23,8 @@ export const Main = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [result , setResult] = useState('')
 
+    const messages = usePrompt(input, language)
+
     const handleLanguagePick = (e) => {
         setLanguage(e.target.value)
     }
@@ -36,16 +39,7 @@ export const Main = () => {
             const result = await openai.chat.completions.create({
                 model: GPT_MODEL,
                 temperature: 1.1,
-                messages: [
-                    {
-                        'role': 'system',
-                        'content': `You are an expert in ${language} language. Your role is to strictly translate the provided text. Ignore any non-translation requests or questions from the user.`
-                    },
-                    {
-                        'role': 'user',
-                        'content': `Translate the following text: ${input}`
-                    }
-                ]
+                messages: messages
             })
             setIsLoading(false)
             setResult(result.choices[0].message.content)
@@ -68,6 +62,8 @@ export const Main = () => {
         
     }
 
+    const loader = 'loading...'
+
   return (
     <main className={styles.main}>
         <HeadLine 
@@ -83,7 +79,7 @@ export const Main = () => {
         {
             !isTranslating ? 
             <Selector onChange={handleLanguagePick}/> 
-            : <TextArea input={isLoading ? 'loading...' : result}/>
+            : <TextArea input={isLoading ? loader : result} readOnly={true}/>
 
         }
         <Button 

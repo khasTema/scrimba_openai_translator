@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './TextArea.module.css'
 
-export const TextArea = ({input, onChange}) => {
+export const TextArea = ({input, onChange, readOnly}) => {
   return (
     <textarea 
         type="text" 
@@ -10,6 +10,7 @@ export const TextArea = ({input, onChange}) => {
         value={input}
         onChange={onChange}
         aria-label='text input'
+        readOnly={readOnly}
     />
   )
 }

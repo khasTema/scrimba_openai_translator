@@ -38,7 +38,7 @@ export const Main = () => {
                 messages: [
                     {
                         'role': 'system',
-                        'content': `You are expert in ${language} language. You translate provided text. `
+                        'content': `You are expert in ${language} language. You strictly translate the provided text. you don't ask question or provide suggestions, only the translation of the test you get. `
                     },
                     {
                         'role': 'user',

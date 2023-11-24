@@ -1,0 +1,37 @@
+.header {
+    background-color: #0D182E;
+    width: 100%;
+    height: 213px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+}
+
+.logo {
+    color: #32CD32;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 43.419px;
+    font-style: normal;
+    font-weight: 800;
+    margin: 0;
+    text-align: left;
+  }
+
+.imageLogo {
+    margin-right: 10px;
+    & img {
+        width: 100%;
+    }
+}
+
+.subtitle {
+    color: #FFF;
+    font-size: 12.212px;
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 1px;
+}

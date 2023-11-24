@@ -1,0 +1,10 @@
+.headline {
+    color: #035A9D;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 30px */
+    margin-top: 0;
+}

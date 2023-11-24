@@ -34,6 +34,7 @@ export const Main = () => {
             const result = await openai.chat.completions.create({
                 model: GPT_MODEL,
                 temperature: 1.1,
+                max_tokens: 20,
                 messages: [
                     {
                         'role': 'system',

@@ -9,6 +9,7 @@ export const TextArea = ({input, onChange}) => {
         placeholder='your text' 
         value={input}
         onChange={onChange}
+        aria-label='text input'
     />
   )
 }
